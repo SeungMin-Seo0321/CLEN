@@ -12,19 +12,11 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            background-size: 300% 300%;
-            animation: gradientShift 8s ease infinite;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
             min-height: 100vh;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            color: #1565c0;
+            line-height: 1.6;
         }
 
         .container {
@@ -35,104 +27,85 @@
 
         .header {
             text-align: center;
-            margin-bottom: 50px;
-            color: white;
+            margin-bottom: 40px;
+            padding: 40px 0;
         }
 
         .header h1 {
-            font-size: 3.5em;
+            font-size: clamp(2.5rem, 5vw, 4rem);
             margin-bottom: 10px;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
-            background: linear-gradient(45deg, #fff, #f0f8ff, #e6f3ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: titleGlow 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes titleGlow {
-            from { filter: drop-shadow(0 0 10px rgba(255,255,255,0.5)); }
-            to { filter: drop-shadow(0 0 20px rgba(255,255,255,0.8)); }
+            color: #1565c0;
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
 
         .header p {
-            font-size: 1.2em;
-            opacity: 0.9;
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: #42a5f5;
+            font-weight: 500;
         }
 
         .nav-tabs {
             display: flex;
             justify-content: center;
-            margin-bottom: 30px;
-            background: rgba(255,255,255,0.15);
-            border-radius: 25px;
-            padding: 15px;
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.2);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 16px;
+            padding: 8px;
+            box-shadow: 0 4px 20px rgba(21, 101, 192, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .tab-button {
-            padding: 18px 35px;
-            background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
-            border: 1px solid rgba(255,255,255,0.2);
-            color: white;
-            font-size: 1.2em;
+            padding: 12px 24px;
+            background: transparent;
+            border: none;
+            color: #1565c0;
+            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            border-radius: 15px;
-            margin: 0 8px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tab-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .tab-button:hover::before {
-            left: 100%;
+            border-radius: 12px;
+            margin: 0 4px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
         }
 
         .tab-button.active {
-            background: linear-gradient(145deg, rgba(255,255,255,0.25), rgba(255,255,255,0.15));
-            transform: scale(1.05) translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            border-color: rgba(255,255,255,0.4);
+            background: #1565c0;
+            color: white;
+            box-shadow: 0 4px 12px rgba(21, 101, 192, 0.3);
         }
 
-        .tab-button:hover {
-            background: linear-gradient(145deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        .tab-button:hover:not(.active) {
+            background: rgba(21, 101, 192, 0.1);
         }
 
         .tab-content {
             display: none;
-            background: rgba(255,255,255,0.95);
+            background: white;
             border-radius: 20px;
             padding: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(21, 101, 192, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .tab-content.active {
             display: block;
-            animation: fadeIn 0.5s ease;
+            animation: fadeIn 0.4s ease;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            text-align: center;
+            color: #1565c0;
+            margin-bottom: 30px;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
         }
 
         .players-grid {
@@ -143,169 +116,131 @@
         }
 
         .player-card {
-            background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
-            border-radius: 25px;
-            padding: 25px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15), 0 0 20px rgba(255,255,255,0.1);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .player-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
-            border-radius: 25px;
-            padding: 2px;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .player-card:hover::before {
-            opacity: 1;
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(21, 101, 192, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(21, 101, 192, 0.1);
         }
 
         .player-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.2), 0 0 40px rgba(102, 126, 234, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(21, 101, 192, 0.15);
+            border-color: #42a5f5;
         }
 
         .player-avatar {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
-            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
+            background: linear-gradient(135deg, #1565c0, #42a5f5);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
+            margin: 0 auto 16px;
             color: white;
-            font-size: 2.5em;
-            font-weight: bold;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-            animation: avatarPulse 4s ease-in-out infinite;
-            position: relative;
-            overflow: hidden;
-        }
-
-        @keyframes avatarPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .player-avatar::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: avatarShine 3s infinite;
-        }
-
-        @keyframes avatarShine {
-            0% { left: -100%; }
-            50%, 100% { left: 100%; }
+            font-size: 1.5rem;
+            font-weight: 700;
         }
 
         .player-name {
-            font-size: 1.3em;
-            font-weight: bold;
+            font-size: 1.25rem;
+            font-weight: 700;
             text-align: center;
-            margin-bottom: 10px;
-            color: #333;
+            margin-bottom: 12px;
+            color: #1565c0;
         }
 
         .player-info {
             text-align: center;
-            color: #666;
-            line-height: 1.6;
+            color: #64b5f6;
+            margin-bottom: 16px;
         }
 
         .player-stats {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 15px;
+            gap: 12px;
         }
 
         .stat-item {
-            background: #f8f9fa;
-            padding: 10px;
-            border-radius: 8px;
+            background: #f8fbff;
+            padding: 12px;
+            border-radius: 10px;
             text-align: center;
+            border: 1px solid #e3f2fd;
         }
 
         .stat-value {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #667eea;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1565c0;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: #64b5f6;
+            margin-top: 2px;
         }
 
         .bracket {
             display: flex;
             flex-direction: column;
-            gap: 30px;
-            margin-top: 20px;
+            gap: 40px;
         }
 
         .round {
             display: flex;
-            justify-content: space-around;
+            flex-direction: column;
             align-items: center;
-            position: relative;
+            gap: 20px;
         }
 
         .round-title {
-            text-align: center;
-            font-size: 1.5em;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: #667eea;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1565c0;
+            padding: 8px 24px;
+            background: #e3f2fd;
+            border-radius: 20px;
+        }
+
+        .round-matches {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
         }
 
         .match {
             background: white;
-            border-radius: 15px;
+            border-radius: 12px;
             padding: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            min-width: 250px;
-            position: relative;
-            border: 2px solid #e9ecef;
+            box-shadow: 0 4px 16px rgba(21, 101, 192, 0.1);
+            border: 2px solid #e3f2fd;
         }
 
         .match-teams {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
         }
 
         .team {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 15px;
+            padding: 12px 16px;
             border-radius: 8px;
-            background: #f8f9fa;
-            transition: all 0.3s ease;
-        }
-
-        .team:hover {
-            background: #e9ecef;
+            background: #f8fbff;
+            border: 1px solid #e3f2fd;
         }
 
         .team.winner {
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #1565c0, #42a5f5);
             color: white;
-            font-weight: bold;
+            font-weight: 600;
         }
 
         .team-name {
@@ -313,61 +248,58 @@
         }
 
         .team-score {
-            font-size: 1.2em;
-            font-weight: bold;
-            padding: 5px 10px;
-            border-radius: 20px;
-            background: rgba(255,255,255,0.2);
-            min-width: 35px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            min-width: 32px;
             text-align: center;
         }
 
         .match-vs {
             text-align: center;
-            font-weight: bold;
-            color: #999;
-            font-size: 0.9em;
-        }
-
-        .schedule-section h2 {
-            color: #667eea;
-            margin-bottom: 20px;
-            font-size: 1.8em;
+            font-weight: 600;
+            color: #64b5f6;
+            font-size: 0.875rem;
         }
 
         .schedule-item {
             background: white;
             padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 16px rgba(21, 101, 192, 0.08);
+            border: 1px solid #e3f2fd;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 20px;
             align-items: center;
         }
 
         .schedule-time {
-            font-weight: bold;
-            color: #667eea;
-            font-size: 1.1em;
+            font-weight: 600;
+            color: #1565c0;
+            font-size: 1rem;
+            white-space: nowrap;
         }
 
         .schedule-match {
-            flex-grow: 1;
-            text-align: center;
             font-weight: 600;
+            color: #1565c0;
         }
 
         .schedule-status {
-            padding: 5px 15px;
+            padding: 6px 16px;
             border-radius: 20px;
-            font-size: 0.9em;
-            font-weight: bold;
+            font-size: 0.875rem;
+            font-weight: 600;
+            white-space: nowrap;
         }
 
         .status-upcoming {
             background: #e3f2fd;
-            color: #1976d2;
+            color: #1565c0;
         }
 
         .status-live {
@@ -382,33 +314,93 @@
         }
 
         @keyframes pulse {
-            0% { opacity: 1; }
+            0%, 100% { opacity: 1; }
             50% { opacity: 0.7; }
-            100% { opacity: 1; }
         }
 
+        /* 모바일 반응형 */
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2em;
+            .container {
+                padding: 16px;
             }
-            
+
+            .header {
+                padding: 20px 0;
+                margin-bottom: 30px;
+            }
+
             .nav-tabs {
                 flex-direction: column;
+                gap: 4px;
+                padding: 12px;
             }
-            
+
             .tab-button {
-                margin: 5px 0;
-            }
-            
-            .round {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .schedule-item {
-                flex-direction: column;
-                gap: 10px;
+                margin: 0;
+                padding: 16px;
                 text-align: center;
+            }
+
+            .tab-content {
+                padding: 20px;
+                border-radius: 16px;
+            }
+
+            .players-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .player-card {
+                padding: 20px;
+            }
+
+            .round-matches {
+                grid-template-columns: 1fr;
+            }
+
+            .schedule-item {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                text-align: center;
+            }
+
+            .schedule-time {
+                font-size: 0.875rem;
+            }
+
+            .schedule-match {
+                font-size: 0.875rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+
+            .tab-content {
+                padding: 16px;
+            }
+
+            .player-card {
+                padding: 16px;
+            }
+
+            .player-avatar {
+                width: 60px;
+            }
+
+            .match {
+                padding: 16px;
+            }
+
+            .schedule-item {
+                padding: 16px;
             }
         }
     </style>
@@ -427,7 +419,7 @@
         </div>
 
         <div id="players" class="tab-content active">
-            <h2 style="text-align: center; color: #667eea; margin-bottom: 30px; font-size: 2em;">참가 선수들</h2>
+            <h2 class="section-title">참가 선수들</h2>
             <div class="players-grid">
                 <div class="player-card">
                     <div class="player-avatar">수</div>
@@ -439,11 +431,11 @@
                     <div class="player-stats">
                         <div class="stat-item">
                             <div class="stat-value">모바일</div>
-                            <div>기기</div>
+                            <div class="stat-label">기기</div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-value">0</div>
-                            <div>경기 수</div>
+                            <div class="stat-label">경기 수</div>
                         </div>
                     </div>
                 </div>
@@ -458,11 +450,11 @@
                     <div class="player-stats">
                         <div class="stat-item">
                             <div class="stat-value">컴퓨터</div>
-                            <div>기기</div>
+                            <div class="stat-label">기기</div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-value">0</div>
-                            <div>경기 수</div>
+                            <div class="stat-label">경기 수</div>
                         </div>
                     </div>
                 </div>
@@ -477,11 +469,11 @@
                     <div class="player-stats">
                         <div class="stat-item">
                             <div class="stat-value">-</div>
-                            <div>기기</div>
+                            <div class="stat-label">기기</div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-value">0</div>
-                            <div>경기 수</div>
+                            <div class="stat-label">경기 수</div>
                         </div>
                     </div>
                 </div>
@@ -496,11 +488,11 @@
                     <div class="player-stats">
                         <div class="stat-item">
                             <div class="stat-value">-</div>
-                            <div>기기</div>
+                            <div class="stat-label">기기</div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-value">0</div>
-                            <div>경기 수</div>
+                            <div class="stat-label">경기 수</div>
                         </div>
                     </div>
                 </div>
@@ -515,11 +507,11 @@
                     <div class="player-stats">
                         <div class="stat-item">
                             <div class="stat-value">-</div>
-                            <div>기기</div>
+                            <div class="stat-label">기기</div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-value">0</div>
-                            <div>경기 수</div>
+                            <div class="stat-label">경기 수</div>
                         </div>
                     </div>
                 </div>
@@ -534,11 +526,11 @@
                     <div class="player-stats">
                         <div class="stat-item">
                             <div class="stat-value">-</div>
-                            <div>기기</div>
+                            <div class="stat-label">기기</div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-value">0</div>
-                            <div>경기 수</div>
+                            <div class="stat-label">경기 수</div>
                         </div>
                     </div>
                 </div>
@@ -553,11 +545,11 @@
                     <div class="player-stats">
                         <div class="stat-item">
                             <div class="stat-value">-</div>
-                            <div>기기</div>
+                            <div class="stat-label">기기</div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-value">0</div>
-                            <div>경기 수</div>
+                            <div class="stat-label">경기 수</div>
                         </div>
                     </div>
                 </div>
@@ -572,11 +564,11 @@
                     <div class="player-stats">
                         <div class="stat-item">
                             <div class="stat-value">-</div>
-                            <div>기기</div>
+                            <div class="stat-label">기기</div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-value">0</div>
-                            <div>경기 수</div>
+                            <div class="stat-label">경기 수</div>
                         </div>
                     </div>
                 </div>
@@ -584,65 +576,65 @@
         </div>
 
         <div id="bracket" class="tab-content">
-            <h2 style="text-align: center; color: #667eea; margin-bottom: 30px; font-size: 2em;">토너먼트 대진표</h2>
+            <h2 class="section-title">토너먼트 대진표</h2>
             
             <div class="bracket">
                 <div class="round">
                     <div class="round-title">8강</div>
-                </div>
-                <div class="round">
-                    <div class="match">
-                        <div class="match-teams">
-                            <div class="team winner">
-                                <span class="team-name">수드1</span>
-                                <span class="team-score">3</span>
-                            </div>
-                            <div class="match-vs">VS</div>
-                            <div class="team">
-                                <span class="team-name">수드8</span>
-                                <span class="team-score">1</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="match">
-                        <div class="match-teams">
-                            <div class="team">
-                                <span class="team-name">수드2</span>
-                                <span class="team-score">2</span>
-                            </div>
-                            <div class="match-vs">VS</div>
-                            <div class="team winner">
-                                <span class="team-name">수드7</span>
-                                <span class="team-score">3</span>
+                    <div class="round-matches">
+                        <div class="match">
+                            <div class="match-teams">
+                                <div class="team winner">
+                                    <span class="team-name">수드1</span>
+                                    <span class="team-score">3</span>
+                                </div>
+                                <div class="match-vs">VS</div>
+                                <div class="team">
+                                    <span class="team-name">수드8</span>
+                                    <span class="team-score">1</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="match">
-                        <div class="match-teams">
-                            <div class="team winner">
-                                <span class="team-name">수드3</span>
-                                <span class="team-score">3</span>
-                            </div>
-                            <div class="match-vs">VS</div>
-                            <div class="team">
-                                <span class="team-name">수드6</span>
-                                <span class="team-score">2</span>
+                        <div class="match">
+                            <div class="match-teams">
+                                <div class="team">
+                                    <span class="team-name">수드2</span>
+                                    <span class="team-score">2</span>
+                                </div>
+                                <div class="match-vs">VS</div>
+                                <div class="team winner">
+                                    <span class="team-name">수드7</span>
+                                    <span class="team-score">3</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="match">
-                        <div class="match-teams">
-                            <div class="team winner">
-                                <span class="team-name">수드4</span>
-                                <span class="team-score">3</span>
+                        <div class="match">
+                            <div class="match-teams">
+                                <div class="team winner">
+                                    <span class="team-name">수드3</span>
+                                    <span class="team-score">3</span>
+                                </div>
+                                <div class="match-vs">VS</div>
+                                <div class="team">
+                                    <span class="team-name">수드6</span>
+                                    <span class="team-score">2</span>
+                                </div>
                             </div>
-                            <div class="match-vs">VS</div>
-                            <div class="team">
-                                <span class="team-name">수드5</span>
-                                <span class="team-score">0</span>
+                        </div>
+
+                        <div class="match">
+                            <div class="match-teams">
+                                <div class="team winner">
+                                    <span class="team-name">수드4</span>
+                                    <span class="team-score">3</span>
+                                </div>
+                                <div class="match-vs">VS</div>
+                                <div class="team">
+                                    <span class="team-name">수드5</span>
+                                    <span class="team-score">0</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -650,32 +642,32 @@
 
                 <div class="round">
                     <div class="round-title">4강</div>
-                </div>
-                <div class="round">
-                    <div class="match">
-                        <div class="match-teams">
-                            <div class="team">
-                                <span class="team-name">수드1</span>
-                                <span class="team-score">-</span>
-                            </div>
-                            <div class="match-vs">VS</div>
-                            <div class="team">
-                                <span class="team-name">수드7</span>
-                                <span class="team-score">-</span>
+                    <div class="round-matches">
+                        <div class="match">
+                            <div class="match-teams">
+                                <div class="team">
+                                    <span class="team-name">수드1</span>
+                                    <span class="team-score">-</span>
+                                </div>
+                                <div class="match-vs">VS</div>
+                                <div class="team">
+                                    <span class="team-name">수드7</span>
+                                    <span class="team-score">-</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="match">
-                        <div class="match-teams">
-                            <div class="team">
-                                <span class="team-name">수드3</span>
-                                <span class="team-score">-</span>
-                            </div>
-                            <div class="match-vs">VS</div>
-                            <div class="team">
-                                <span class="team-name">수드4</span>
-                                <span class="team-score">-</span>
+                        <div class="match">
+                            <div class="match-teams">
+                                <div class="team">
+                                    <span class="team-name">수드3</span>
+                                    <span class="team-score">-</span>
+                                </div>
+                                <div class="match-vs">VS</div>
+                                <div class="team">
+                                    <span class="team-name">수드4</span>
+                                    <span class="team-score">-</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -683,18 +675,18 @@
 
                 <div class="round">
                     <div class="round-title">결승</div>
-                </div>
-                <div class="round">
-                    <div class="match">
-                        <div class="match-teams">
-                            <div class="team">
-                                <span class="team-name">4강 1경기 승자</span>
-                                <span class="team-score">-</span>
-                            </div>
-                            <div class="match-vs">VS</div>
-                            <div class="team">
-                                <span class="team-name">4강 2경기 승자</span>
-                                <span class="team-score">-</span>
+                    <div class="round-matches">
+                        <div class="match">
+                            <div class="match-teams">
+                                <div class="team">
+                                    <span class="team-name">4강 1경기 승자</span>
+                                    <span class="team-score">-</span>
+                                </div>
+                                <div class="match-vs">VS</div>
+                                <div class="team">
+                                    <span class="team-name">4강 2경기 승자</span>
+                                    <span class="team-score">-</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -703,50 +695,48 @@
         </div>
 
         <div id="schedule" class="tab-content">
-            <div class="schedule-section">
-                <h2>경기 일정</h2>
-                
-                <div class="schedule-item">
-                    <div class="schedule-time">2025-07-21 14:00</div>
-                    <div class="schedule-match">수드1 vs 수드8 (8강 1경기)</div>
-                    <div class="schedule-status status-completed">완료</div>
-                </div>
+            <h2 class="section-title">경기 일정</h2>
+            
+            <div class="schedule-item">
+                <div class="schedule-time">2025-07-21 14:00</div>
+                <div class="schedule-match">수드1 vs 수드8 (8강 1경기)</div>
+                <div class="schedule-status status-completed">완료</div>
+            </div>
 
-                <div class="schedule-item">
-                    <div class="schedule-time">2025-07-21 15:00</div>
-                    <div class="schedule-match">수드2 vs 수드7 (8강 2경기)</div>
-                    <div class="schedule-status status-completed">완료</div>
-                </div>
+            <div class="schedule-item">
+                <div class="schedule-time">2025-07-21 15:00</div>
+                <div class="schedule-match">수드2 vs 수드7 (8강 2경기)</div>
+                <div class="schedule-status status-completed">완료</div>
+            </div>
 
-                <div class="schedule-item">
-                    <div class="schedule-time">2025-07-21 16:00</div>
-                    <div class="schedule-match">수드3 vs 수드6 (8강 3경기)</div>
-                    <div class="schedule-status status-completed">완료</div>
-                </div>
+            <div class="schedule-item">
+                <div class="schedule-time">2025-07-21 16:00</div>
+                <div class="schedule-match">수드3 vs 수드6 (8강 3경기)</div>
+                <div class="schedule-status status-completed">완료</div>
+            </div>
 
-                <div class="schedule-item">
-                    <div class="schedule-time">2025-07-21 17:00</div>
-                    <div class="schedule-match">수드4 vs 수드5 (8강 4경기)</div>
-                    <div class="schedule-status status-completed">완료</div>
-                </div>
+            <div class="schedule-item">
+                <div class="schedule-time">2025-07-21 17:00</div>
+                <div class="schedule-match">수드4 vs 수드5 (8강 4경기)</div>
+                <div class="schedule-status status-completed">완료</div>
+            </div>
 
-                <div class="schedule-item">
-                    <div class="schedule-time">2025-07-22 14:00</div>
-                    <div class="schedule-match">수드1 vs 수드7 (4강 1경기)</div>
-                    <div class="schedule-status status-live">진행중</div>
-                </div>
+            <div class="schedule-item">
+                <div class="schedule-time">2025-07-22 14:00</div>
+                <div class="schedule-match">수드1 vs 수드7 (4강 1경기)</div>
+                <div class="schedule-status status-live">진행중</div>
+            </div>
 
-                <div class="schedule-item">
-                    <div class="schedule-time">2025-07-22 15:30</div>
-                    <div class="schedule-match">수드3 vs 수드4 (4강 2경기)</div>
-                    <div class="schedule-status status-upcoming">예정</div>
-                </div>
+            <div class="schedule-item">
+                <div class="schedule-time">2025-07-22 15:30</div>
+                <div class="schedule-match">수드3 vs 수드4 (4강 2경기)</div>
+                <div class="schedule-status status-upcoming">예정</div>
+            </div>
 
-                <div class="schedule-item">
-                    <div class="schedule-time">2025-07-22 17:00</div>
-                    <div class="schedule-match">결승전</div>
-                    <div class="schedule-status status-upcoming">예정</div>
-                </div>
+            <div class="schedule-item">
+                <div class="schedule-time">2025-07-22 17:00</div>
+                <div class="schedule-match">결승전</div>
+                <div class="schedule-status status-upcoming">예정</div>
             </div>
         </div>
     </div>
@@ -771,31 +761,6 @@
             // 선택된 탭 버튼 활성화
             event.target.classList.add('active');
         }
-
-        // 페이지 로드 시 애니메이션 효과
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.player-card');
-            cards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    card.style.transition = 'all 0.5s ease';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 100);
-                }, index * 100);
-            });
-        });
-
-        // 실시간 업데이트 시뮬레이션
-        setInterval(function() {
-            const liveStatus = document.querySelector('.status-live');
-            if (liveStatus) {
-                const currentTime = new Date().toLocaleTimeString();
-                // 실제 구현에서는 서버에서 데이터를 받아와 업데이트
-            }
-        }, 1000);
     </script>
 </body>
 </html>
